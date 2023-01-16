@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: 172.31.94.253
   become: true
   tasks:
     - name: create container using sreeramakumar/project2:latest
