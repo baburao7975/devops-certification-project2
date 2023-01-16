@@ -1,22 +1,19 @@
 ---
-- name: docker image build and push to docker hub
-  hosts: all
-  gather_facts: no
-  become: yes
-  tasks:
-  - name: Create docker images using war artifactory
-    command: docker build -t babuproject2:latest .
+ - hosts: all
+   gather_facts: no
+   become: yes
+   tasks:
+     - name: Create docker images using war artifactory
+       command: docker build -t babuproject2:latest .
 
 
-  - name: create tag to image
-    command: docker tag babuproject2:latest baburao6580/babuproject2:latest
+     - name: create tag to image
+       command: docker tag babuproject2:latest baburao6580/babuproject2:latest
     
-  - name: docker hub login
-    command: docker login --username baburao6580 --password babu797575
+     - name: docker hub login
+       command: docker login --username baburao6580 --password babu797575
 
-  - name: push image to docker hub
-    command: docker push baburao6580/babuproject2:latest
+     - name: push image to docker hub
+       command: docker push baburao6580/babuproject2:latest
 
-  - name: remove docker image from docker server server post image push
-    command: docker rmi babuproject2:latest baburao6580/project2:latest
-    ignore_errors: yes
+  
