@@ -1,18 +1,6 @@
 ---
-- hosts: 172.31.12.40
+- hosts: all
   become: true
   tasks:
-    - name: stop project2 docker container
-      command: docker stop project2
-      ignore_errors: yes
-      
-    - name: remove stoped container
-      command: docker rm project2
-      ignore_errors: yes
-      
-    - name: remove docker image
-      command: docker rmi sreeramakumar/project2:latest
-      ignore_errors: yes
-      
     - name: create container using sreeramakumar/project2:latest
-      command: docker run -d --name project2 -p 8090:80 sreeramakumar/project2:latest
+      command: docker run -d --name phpproject2 -p 8090:80 baburao6580/babuproject2:latest
